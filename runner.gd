@@ -16,20 +16,20 @@ const RUNNER_UP_RIGHT = preload("uid://c7x3s5c2r5l86")
 var max_speed := 600.0
 
 func _physics_process(_delta: float) -> void:
-    var direction := Input.get_vector("move_left", "move_right", "move_up", "move_down")
-    velocity = direction * max_speed
-    move_and_slide()
-    var direction_discrete := direction.sign()
-    match direction_discrete:
-        Vector2.RIGHT, Vector2.LEFT:
-            _skin.texture = RUNNER_RIGHT
-        Vector2.UP:
-            _skin.texture = RUNNER_UP
-        Vector2.DOWN:
-            _skin.texture = RUNNER_DOWN
-        UP_RIGHT, UP_LEFT:
-            _skin.texture = RUNNER_UP_RIGHT
-        DOWN_RIGHT, DOWN_LEFT:
-            _skin.texture = RUNNER_DOWN_RIGHT
-    if direction_discrete.length() > 0:
-        _skin.flip_h = direction.x < 0.0
+	var direction := Input.get_vector("move_left", "move_right", "move_up", "move_down")
+	velocity = direction * max_speed
+	move_and_slide()
+	var direction_discrete := direction.sign()
+	match direction_discrete:
+		Vector2.RIGHT, Vector2.LEFT:
+			_skin.texture = RUNNER_RIGHT
+		Vector2.UP:
+			_skin.texture = RUNNER_UP
+		Vector2.DOWN:
+			_skin.texture = RUNNER_DOWN
+		UP_RIGHT, UP_LEFT:
+			_skin.texture = RUNNER_UP_RIGHT
+		DOWN_RIGHT, DOWN_LEFT:
+			_skin.texture = RUNNER_DOWN_RIGHT
+	if direction_discrete.length() > 0:
+		_skin.flip_h = direction.x < 0.0
